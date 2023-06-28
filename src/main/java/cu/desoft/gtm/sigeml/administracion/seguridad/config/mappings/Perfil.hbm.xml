@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+  <hibernate-mapping package="cu.desoft.gtm.sigeml.administracion.seguridad.domain" >
+    <class name="Perfil" table="perfil">
+		<id name="id" column="idPerfil">
+			<generator class="increment" />
+		</id>
+      	
+      	<property name="nombre" column="Nombre" />
+      	
+      	<set name="permisos" table="PerfilPermiso" lazy="false" cascade="save-update">
+			<key column="IdPerfil"></key>
+			<many-to-many class="Permiso" column="IdPermiso" />	
+	  	</set>	
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,373 @@
+/* Fichero para poner los estilos que vaya sacando de los de el proyecto de ejemplo (C...) */
+
+/* clase para el encabezado de los formularios*/
+.encabezado,label.encabezado {
+	font-weight: bold;
+	display: block;
+	margin-bottom: 5px;
+}
+
+.separadorDerecha,.separa_div_der {
+	padding-right: 10px;
+	padding-left: 10px;
+}
+
+input.checkbox,input.radio {
+	border: 0px;
+	margin-top: 6px;
+}
+
+.w100 {
+	width: 100%;
+}
+
+.h100 {
+	height: 100%;
+}
+
+.float_right {
+	float: right;
+	padding-left: 5px;
+}
+
+textarea.w100 {
+	width: 99%;
+}
+
+.w50 {
+	width: 50%;
+}
+
+.w33 {
+	width: 33%;
+}
+
+.alTop {
+	vertical-align: top;
+}
+.alLeft {
+	text-align: left;
+}
+.alCenter {
+	text-align: center;
+}
+.alRight {
+	text-align: right;
+}
+
+/*=======MESAJES DE ERROR Y ADVERTENCIAS=========*/
+.d_MsgPanel ul{
+	list-style: none;
+	margin-top:0px;
+	margin-bottom:3px;
+	margin-left:0px;
+	padding-left:0px;
+}
+.d_MsgPanel ul li{
+	margin-left:0px;
+	padding-left:0px;
+}
+
+div.mensaje_advertencia,div.mensaje_error,div.mensaje_informacion{
+	height: auto;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	padding-left: 25px;
+	width: 90%;
+}
+
+div.mensaje_advertencia .header,div.mensaje_error .header,div.mensaje_informacion .header{
+	display: block;
+	font-weight: bold;
+}
+
+div.mensaje_advertencia{
+	background-image: url(../img/mensajadver.jpg);
+	background-repeat: no-repeat;
+	color: #CAB235;
+}
+div.mensaje_error{
+	background-image: url(../img/error.gif);
+	background-repeat: no-repeat;
+	color: #910C00;
+}
+div.mensaje_informacion{
+	background-image: url(../img/informacion.gif);
+	background-repeat: no-repeat;
+	color: #116CB8;
+}
+li.cicpc-messages-warn{
+	color: #CAB235;
+}
+li.cicpc-messages-error{
+	color: #910C00;
+}
+li.cicpc-messages-info{
+	color: #116CB8;
+}
+
+div.mensaje_noimg{
+	background-image: none;
+	padding-left: 0px;
+}
+
+
+table.tabla_lista {
+	border: 1px #0066CC double;
+	border-style: ridge;
+	border-collapse: separate;
+	margin: 0px;
+	margin-bottom: 7px;
+	margin-top: 7px;
+	padding: 0px;
+}
+
+table.tabla_lista td {
+	background-color: #F4F8FF;
+	padding-top: 1px;
+	padding-bottom: 1px;
+	padding-left: 11px;
+	padding-right: 11px;
+}
+
+
+
+/* celdas de encabezados */
+table.tabla_lista th,table.tabla_lista th.header,table.tabla_lista td.header,table.tabla_lista tr.header td
+	{
+	background-color: #07396E;
+	vertical-align: middle;
+	color: #FFFFFF;
+	font-weight: bold;
+	text-align: left;
+	padding-bottom: 0px;
+	padding-top: 0px;
+	padding-left: 11px;
+	padding-right: 11px;
+	font-style: normal
+}
+
+/* celdas alternadas que no son encabezados */
+table.tabla_lista tr.alt td.null,table.tabla_lista tr.alt td {
+	background-color: #FFFFFF;
+}
+
+table.tabla_lista tfoot td,table.tabla_lista tfoot tf {
+	background-color: #F4F8FF;
+	font-style: normal;
+	font-weight: bold;
+	color:#15428B;
+	
+}
+
+/* estilos para las tablas que muestran datos (no las listas) */
+table.tabla_datos {
+	border: 1px #000 solid;
+	border-collapse: separate;
+	margin: 0px;
+	margin-bottom: 7px;
+	padding: 0px;
+}
+
+/* estilos para las celdas (no alternadas) */
+table.tabla_datos td {
+	text-align: left;
+	background-color: #F4F8FF;
+	padding: 2px;
+}
+
+/* celdas de encabezados */
+table.tabla_datos th,table.tabla_datos th.header,table.tabla_datos td.header,table.tabla_datos tr.alt td.header
+	{
+	text-align: right;
+	background-color: #C3DAF9;
+	padding-right: 7px;
+	padding-left: 7px;
+	vertical-align: top;
+	color: #15428B;
+	font-weight: bold;
+}
+
+/* celdas alternadas que no son encabezados */
+table.tabla_datos tr.alt td.null,table.tabla_datos tr.alt td {
+	background-color: #FFFFFF;
+}
+
+table.tabla_layout {
+	border-collapse: collapse;
+}
+table.tabla_layout td,table.tabla_layout th,table.tabla_layout tf {
+	vertical-align: top;
+}
+
+/* estilos para las tablas que muestran formularios */
+table.tabla_form {
+	border-collapse: collapse;
+	margin: 0px;
+	/*margin-bottom:7px;
+	margin-top:7px;*/
+	padding: 0px;
+}
+
+table.tabla_form label {
+	margin-right: 3px;
+}
+
+/* estilos para las celdas (no alternadas) */
+table.tabla_form td,table.tabla_form td.null,table.tabla_form td,table.tabla_form td {
+	margin: 0px;
+	padding: 0px;
+	padding-right: 3px;
+	vertical-align: top;
+}
+table.tabla_form td table.tabla_form td,table.tabla_form td.null table.tabla_form td {
+	padding-right: 4px;
+}
+
+/* celdas de encabezados */
+table.tabla_form th,table.tabla_form th.header,table.tabla_form td.header {
+	margin: 0px;
+	padding: 0px;
+	text-align: left;
+	vertical-align: middle;
+}
+
+table.tabla_form th.margen,table.tabla_form th.header.margen,table.tabla_form td.header.margen {
+	padding-left: 20px;
+}
+table.tabla_form th.field_mrg,table.tabla_form td.field_mrg {
+	padding-left: 7px;
+}
+
+/* tama�os para las celdas de las tablas */
+table.tabla_form.two_cols th.header,table.tabla_form.two_cols td.header,table.tabla_form.two_cols td.null {
+	width: 50%;
+}
+table.tabla_form.three_cols th.header,table.tabla_form.three_cols td.header,table.tabla_form.three_cols td.null {
+	width: 33%;
+}
+table.tabla_form.four_cols th.header,table.tabla_form.four_cols td.header,table.tabla_form.four_cols td.null {
+	width: 25%;
+}
+table.tabla_form.auto_cols th.header,table.tabla_form.auto_cols td.header,table.tabla_form.auto_cols td.null {
+	width: auto;
+}
+table.tabla_form.auto_cols th.header.w100,table.tabla_form.auto_cols td.header.w100,table.tabla_form.auto_cols td.null.w100 {
+	width: 100%;
+}
+
+.field_mrg {
+	padding-left: 7px;
+}
+
+table.tabla_form th.field_mrg,table.tabla_form td.field_mrg {
+	padding-left: 7px;
+}
+
+.separador_izq {
+	padding-left: 7px;
+}
+
+.separador_der {
+	padding-right: 7px;
+}
+
+.separador_arriba {
+	padding-top: 7px;
+}
+
+.separador_abajo {
+	padding-bottom: 7px;
+}
+
+/*---------------------------------rich:panelMenu----------------------------------*/
+/** Estilo para cada uno de los elementos del men� **/
+.rich-pmenu-group,.rich-pmenu-item{
+	border-left:0px;
+	border-right:0px;
+	font-weight: normal;
+}
+.rich-pmenu-item{
+}
+.dr-pmenu-nowrap{
+padding-left:9px;
+}
+.dr-pmenu-nowrap img{
+width:8px;
+}
+.dr-pmenu-top-group-div img[id^="rightIcon"]{
+display:none;
+}
+.dr-pmenu-top-group-div img[id^="leftIcon"]{
+/*margin-left:9px;*/
+}
+/* Define a los elementos del primer nivel */
+.dr-pmenu-top-group,.menu_top_group{
+	font-weight: bold;
+	/*letter-spacing: 0.3px;*/
+	background: #07396E; /*e8e8e8*/ /*6a110b*/
+	color: #FFFFFF;
+}
+.dr-pmenu-top-group img{
+width:16px;
+}
+.dr-pmenu-top-group-div{
+	border-bottom:1px solid;
+	border-color:#C4C0B9;
+	font-weight: bold;
+	margin:0px;
+	padding:0px;
+}
+.dr-pmenu-selected-item{
+	font-style: normal;
+}
+.rich-pmenu-group-hover{
+	background-color:#FAF9F4;
+}
+
+/*------------------------------------DataScroller-------------------------------------*/	
+#includeGeneral .rich-datascr{
+margin-top: 0px;
+}
+#includeGeneral .rich-dtascroller-table td{
+padding:0px;
+padding-left:5px;
+padding-right:5px;
+width:auto;
+}
+/* Incluye todos los botones del scroller */
+#includeGeneral .rich-dtascroller-table,#includeGeneral .rich-datascr-button,#includeGeneral .rich-datascr-act,#includeGeneral .rich-datascr-inact{
+border:0px;
+background:transparent;
+}
+#includeGeneral .rich-dtascroller-table td.rich-datascr-button{
+padding-left:3px;
+padding-right:3px;
+}
+
+/*------------------------------------Rich calendar-------------------------------------*/	
+#includeGeneral span[id$=Popup]{
+display:block;
+padding: 0px;
+}
+
+#includeGeneral span[id$=Popup]>.rich-calendar-input{
+width:50%;
+margin-left:105px;
+}
+
+#includeGeneral span[id$=Popup]>.rich-calendar-button{
+float: right;
+padding-top:2px;
+}
+
+/*------------------------------------Mensaje de error-------------------------------------*/
+.border-error {
+	border-color:#910C00;
+}	
+
+.exaltar {
+	font-weight: bold;
+}

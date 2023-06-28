@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="app.registro.productos.domain">
+	<class name="Producto" table="Producto">
+  		<id name="id" column="id">
+			<generator class="increment" />
+		</id>
+      	
+      	<property name="nombre" column="nombre" unique="true"/>	
+      	<property name="codigo" column="codigo" />
+      	<property name="cantidadDias" column="cantidadDias" />
+      	<property name="fechaInicio" column="fechaInicio" />
+      	<property name="fechaFin" column="fechaFin" />
+	</class>
+</hibernate-mapping>

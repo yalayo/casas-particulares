@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="app.directorio.configuracion.domain" >
+	<class name="Pregunta" table="Pregunta">
+		<id name="id" column="id">
+			<generator class="increment" />
+		</id>
+		
+		<property name="numero" column="numero" /> 		
+		<property name="texto" column="texto"/>
+		<property name="seccion" column="seccion"/>
+                		
+		<joined-subclass name="PreguntaEspecifica" table="PreguntaEspecifica">
+			<key column="id" />
+			<property name="simple" column="simple" />
+		</joined-subclass>
+		
+		<joined-subclass name="PreguntaBinaria" table="PreguntaBinaria">
+			<key column="id" />
+		</joined-subclass>
+		
+		<joined-subclass name="PreguntaFecha" table="PreguntaFecha">
+			<key column="id" />
+		</joined-subclass>  
+		
+		<joined-subclass name="PreguntaSeleccion" table="PreguntaSeleccion">
+			<key column="id" />
+			
+			<bag name="respuestas" table="PreguntaSeleccionNomenclador" lazy="false" cascade="save-update">
+				<key column="idPregunta"></key>
+				<many-to-many class="cu.desoft.gtm.sigeml.comun.domain.Nomenclador" column="idNomenclador" />	
+		  	</bag>
+		</joined-subclass>        
+	</class>
+</hibernate-mapping>

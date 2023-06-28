@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+	<bean id="filterChainProxy" class="org.acegisecurity.util.FilterChainProxy">
+      <property name="filterInvocationDefinitionSource">
+         <value>
+		    CONVERT_URL_TO_LOWERCASE_BEFORE_COMPARISON
+		    PATTERN_TYPE_APACHE_ANT
+		    /security/j_acegi_logout=filtroLogout
+		    /**=filtroLogout,authenticationProcessingFilter,exceptionTranslationFilter,anonymousProcessingFilter		    
+         </value>
+      </property>
+    </bean>
+    <!-- ,filterInvocationInterceptor -->
+    
+    <bean id="authenticationProcessingFilter" class="app.directorio.comun.acegi.filter.MyAuthenticationProcessingFilter">
+    	<property name="authenticationManager" ref="authenticationManager"/>
+      	<property name="defaultTargetUrl"><value>/web/sistema.jsf</value></property>
+      	<property name="authenticationFailureUrl"><value>/web/relogin.html</value></property>
+      	<!-- <property name="filterProcessURL"><value>/j_acegi_security_check</value></property>  -->
+    </bean>
+    
+    <bean id="filtroLogout" class="org.acegisecurity.ui.logout.LogoutFilter">
+      <constructor-arg value="/web/index.html"/> <!-- URL ha donde va despues de desloguearse -->
+      
+      <constructor-arg>
+         <list>
+              <bean class="org.acegisecurity.ui.logout.SecurityContextLogoutHandler"/>
+              <bean class="app.directorio.comun.acegi.logout.MySecurityContextLogoutHandler"/>
+         </list>
+      </constructor-arg>
+      
+      <property name="filterProcessesUrl"><value>/j_acegi_logout</value></property>
+   </bean>   
+   
+         
+   <bean id="authenticationManager" class="org.acegisecurity.providers.ProviderManager">
+      <property name="providers">
+         <list>
+            <ref local="daoAuthenticationProvider"/>     <!--  Aqui pasar mi propio AuthenticationProvider-->
+            <ref local="daoAuthenticationProviderInMemory"/>
+            <ref local="anonymousAuthenticationProvider"/>
+         </list>
+      </property>
+   </bean>
+
+   <bean id="jdbcDao" class="app.directorio.comun.acegi.jdbc.AppJdbcPostgresDaoImpl">
+      <property name="dataSource"><ref bean="dataSource"/></property>      
+   </bean>
+   
+   <bean id="inMemoryDao" class="org.acegisecurity.userdetails.memory.InMemoryDaoImpl">
+		<property name="userMap">
+			<value>
+				root=maranata,PERMISO_ADMIN
+			</value>
+			
+		</property>
+	</bean>
+
+   <bean id="daoAuthenticationProvider" class="org.acegisecurity.providers.dao.DaoAuthenticationProvider">
+      <property name="userDetailsService"><ref local="jdbcDao"/></property>
+   </bean>
+   
+   <bean id="daoAuthenticationProviderInMemory" class="org.acegisecurity.providers.dao.DaoAuthenticationProvider">
+      <property name="userDetailsService"><ref local="inMemoryDao"/></property>
+   </bean>
+
+   <bean id="authenticationProcessingFilterEntryPoint" class="org.acegisecurity.ui.webapp.AuthenticationProcessingFilterEntryPoint">
+      <property name="loginFormUrl"><value>/web/login.html</value></property>
+      <property name="forceHttps"><value>false</value></property>
+      
+   </bean>
+   <!-- ======================== AUTORIZACION WEB======================= -->
+   <bean id="anonymousProcessingFilter" class="org.acegisecurity.providers.anonymous.AnonymousProcessingFilter">
+      <property name="key"><value>foobar</value></property>
+      <property name="userAttribute"><value>anonymousUser,PERMISO_ANONYMOUS</value></property>
+      <property name="removeAfterRequest"><value>false</value></property>
+   </bean>
+   
+   <bean id="anonymousAuthenticationProvider" class="org.acegisecurity.providers.anonymous.AnonymousAuthenticationProvider">
+      <property name="key"><value>foobar</value></property>
+   </bean>
+   
+   <bean id="httpRequestAccessDecisionManager" class="org.acegisecurity.vote.AffirmativeBased">
+      <property name="allowIfAllAbstainDecisions"><value>false</value></property>
+      <property name="decisionVoters">
+         <list>
+            <ref bean="roleVoter"/>
+         </list>
+      </property>
+   </bean>
+	
+   <bean id="roleVoter" class="org.acegisecurity.vote.RoleVoter">
+ 		<property name="rolePrefix"><value>PERMISO_</value></property>
+   </bean>
+
+    
+   <!-- ======================== INTEGRACION ======================= -->
+      
+   <bean id="securityContextHolderAwareRequestFilter" class="vnz.cicpc.securityframework.wrapper.SecurityContextHolderAwareRequestFilter"/>
+
+	
+	<bean id="exceptionTranslationFilter" class="org.acegisecurity.ui.ExceptionTranslationFilter">
+      <property name="authenticationEntryPoint">
+      		<ref local="authenticationProcessingFilterEntryPoint"/>
+      </property>
+      <property name="accessDeniedHandler">
+      		<ref bean="accessDeniedHandler"/>
+      </property>
+   </bean>
+   
+   <bean id="accessDeniedHandler" class="org.acegisecurity.ui.AccessDeniedHandlerImpl">
+   		<property name="errorPage" value="/web/denegado.html"/>
+   </bean>
+   	
+	<!-- PERMISO_AUTENTICADO  -->
+	<bean id="filterInvocationInterceptor" class="org.acegisecurity.intercept.web.FilterSecurityInterceptor">
+	  <property name="observeOncePerRequest"><value>false</value></property>
+      <property name="authenticationManager"><ref bean="authenticationManager"/></property>
+      <property name="accessDecisionManager"><ref bean="httpRequestAccessDecisionManager"/></property>
+      <property name="objectDefinitionSource">
+         <value>
+			    CONVERT_URL_TO_LOWERCASE_BEFORE_COMPARISON
+			    PATTERN_TYPE_APACHE_ANT
+			    /j_acegi_security_check=PERMISO_ANONYMOUS
+			    /security/j_acegi_security_check=PERMISO_ANONYMOUS
+			    /web/index.html=PERMISO_ANONYMOUS 
+			    /web/login.html=PERMISO_ANONYMOUS 
+			    /web/sistema.jsf=PERMISO_AUTENTICADO 
+         </value>
+      </property>
+   </bean>
+</beans>

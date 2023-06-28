@@ -1,0 +1,301 @@
+/*---------------------------------rich:panelMenu----------------------------------*/
+/** Estilo para cada uno de los elementos del menú **/
+.rich-pmenu-group,.rich-pmenu-item{
+	border-left:0px;
+	border-right:0px;
+	font-weight: normal;
+}
+.rich-pmenu-item{
+}
+.dr-pmenu-nowrap{
+padding-left:9px;
+}
+.dr-pmenu-nowrap img{
+width:8px;
+}
+.dr-pmenu-top-group-div img[id^="rightIcon"]{
+display:none;
+}
+.dr-pmenu-top-group-div img[id^="leftIcon"]{
+/*margin-left:9px;*/
+}
+/* Define a los elementos del primer nivel */
+.dr-pmenu-top-group,.menu_top_group{
+	font-weight: bold;
+	/*letter-spacing: 0.3px;*/
+	background: #6a110b; /*e8e8e8*/
+	color: #FFFFFF;
+}
+.dr-pmenu-top-group img{
+width:16px;
+}
+.dr-pmenu-top-group-div{
+	border-bottom:0px;
+	font-weight: bold;
+	margin:0px;
+	padding:0px;
+}
+.dr-pmenu-selected-item{
+	font-style: normal;
+}
+.rich-pmenu-group-hover{
+	background-color:#FAF9F4;
+}
+
+/*------------------------------------DataScroller-------------------------------------*/	
+#includeGeneral .rich-datascr{
+margin-top: 0px;
+}
+#includeGeneral .rich-dtascroller-table td{
+padding:0px;
+padding-left:5px;
+padding-right:5px;
+width:auto;
+}
+/* Incluye todos los botones del scroller */
+#includeGeneral .rich-dtascroller-table,#includeGeneral .rich-datascr-button,#includeGeneral .rich-datascr-act,#includeGeneral .rich-datascr-inact{
+border:0px;
+background:transparent;
+}
+#includeGeneral .rich-dtascroller-table td.rich-datascr-button{
+padding-left:3px;
+padding-right:3px;
+}
+/* Define el boton de la pag. activa */
+#includeGeneral .rich-datascr-act{
+font-weight:bold;
+text-decoration:underline;
+}
+/* Define el boton de la pag. inactiva */
+#includeGeneral .rich-datascr-inact{
+color:#000;
+}
+/*------------------------------------tabPanel-------------------------------------*/	
+#includeGeneral .rich-tabpanel-content,#includeGeneral .dr-tbpnl-cntnt{
+	background-color: #FAF9F4;
+	font-size: 12px;
+	padding: 7px 7px 7px 7px;
+}
+
+#includeGeneral .rich-tab-active{
+	background-color:#FAF9F4;
+	background-image:none;
+	font-weight: bold;
+}
+#includeGeneral .rich-tab-inactive{
+	background-image: url("../images/escritorioTrabajo/bak.gif");
+	background-repeat: repeat-x;
+	font-weight: normal;
+}
+#includeGeneral .dr-tbpnl-tb-sel{
+	border: 1px #fff solid;
+	border-bottom: none;
+	background-color:#FAF9F4;
+	background-image:none;
+	font-weight: normal;
+}
+
+/*tabs del titulo*/
+#includeGeneral .tab_titulo .rich-tab-active{
+	background-color:#EE3024;
+	background-image: none;
+	background-repeat: repeat-x;
+	font-weight: bold;
+	color: #ffffff;
+}
+#includeGeneral .tab_titulo .rich-tab-inactive{
+	background-color:#6B120E;
+	background-image: none;
+	background-repeat: repeat-x;
+	font-weight: bold;
+	color: #ffffff;
+}
+#includeGeneral .tab_titulo .dr-tbpnl-tb-sel{
+	background-color:#EE3024;
+	background-image: none;
+	background-repeat: repeat-x;
+	font-weight: bold;
+	color: #ffffff;
+}
+
+#includeGeneral .tab_titulo .dr-tbpnl-cntnt .rich-tab-active{
+	background-color:#FAF9F4;
+	background-image:none;
+	color: #000;
+	font-weight: bold;
+}
+#includeGeneral .tab_titulo .dr-tbpnl-cntnt .rich-tab-inactive{
+	background-image: url("../images/escritorioTrabajo/bak.gif");
+	background-repeat: repeat-x;
+	color: #000;
+	font-weight: normal;
+}
+#includeGeneral .tab_titulo .dr-tbpnl-cntnt .dr-tbpnl-tb-sel{
+	background-color:#FAF9F4;
+	background-image:none;
+	color: #000;
+	font-weight: normal;
+}
+
+/*-----------------------------rich:dataDefinitionList-----------------------------*/	
+.rich-deflist{
+margin-top:6px;
+margin-bottom:3px;
+}
+.rich-definition{
+margin-left:15px;
+}
+
+/*-----------------------------------DataTable-------------------------------------*/	
+#includeGeneral .dr-table-headercell,#includeGeneral .rich-subtable-headercell {
+	background-image: none;
+}
+
+/*------------------------------------Calendar-------------------------------------*/
+#includeGeneral .rich-calendar-popup{
+width:auto;
+}
+#includeGeneral .rich-calendar-exterior{
+border : 0px;
+}
+#includeGeneral .rich-calendar-header{
+color: #FFFFFF;
+}
+#includeGeneral .rich-cell-size{
+/*width : 18px;
+height : 18px;*/
+line-height : 18px;
+}
+#includeGeneral .rich-calendar-tool{
+/*width : 18px;
+height : 18px;*/
+}
+#includeGeneral .rich-calendar-month{
+color: #FFFFFF;
+}
+#includeGeneral .rich-calendar-days{
+/*height : 18px;*/
+/*font-weight : bold;*/
+}
+#includeGeneral .rich-calendar-week{
+/*width : 18px;*/
+}
+#includeGeneral .rich-calendar-toolfooter{
+/*height : 18px;*/
+}
+#includeGeneral .rich-calendar-exterior{
+background-color:#731B17;
+border:0px;
+color:#FFF;
+}
+#includeGeneral .rich-calendar-header{
+border-bottom-color:#C4C0B9;
+background-color:#731B17;
+}
+#includeGeneral .rich-calendar-cell{
+border-bottom:0px;
+border-right-color:#D5B9B8;
+background-color:#731B17;
+font-weight:bold;
+}
+#includeGeneral .rich-calendar-tool{
+background-color:#731B17;
+font-weight:bold;
+color:#FFF;
+}
+#includeGeneral .rich-calendar-month{
+background-color:#731B17;
+font-weight:bold;
+color:#FFF;
+}
+#includeGeneral .rich-calendar-days{
+border-bottom-color:#7B7080;
+border-right:0px;
+background:#E9D1D1;
+color:#323256;
+}
+#includeGeneral .rich-calendar-weekends{
+color:#323256;
+}
+#includeGeneral .rich-calendar-week{
+border-bottom:0px;
+background-color:#731B17;
+border-right-color:#D5B9B8;
+font-size:11px;
+font-family:Arial, Verdana, sans-serif ;
+}
+#includeGeneral .rich-calendar-holly{
+color:#FFF;
+}
+#includeGeneral .rich-calendar-boundary-dates{
+color:#731B17;
+cursor:default;
+}
+#includeGeneral .rich-calendar-today{
+background-color:#FF9A9D;
+}
+#includeGeneral .rich-calendar-select{
+background-color:#D91016;
+color:#FFF;
+}
+#includeGeneral .rich-calendar-hover{
+background-color:#D91016;
+}
+#includeGeneral .rich-calendar-today.rich-calendar-hover{
+color:#FFF;
+}
+#includeGeneral .rich-calendar-toolfooter{
+background:#731B17;
+}
+#includeGeneral .rich-calendar-footer{
+border-top-color:#C4C0B9;
+border-right-color:#C4C0B9;
+background:#731B17;
+}
+#includeGeneral button.rich-calendar-button{
+border:#4A4841 1px solid;
+padding-left:2px;
+padding-right:2px;
+margin-left:0px;
+margin-bottom:5px;
+height:18px;
+}
+#includeGeneral .rich-calendar-toolfooter a,#includeGeneral .rich-calendar-toolfooter a:link,#includeGeneral .rich-calendar-toolfooter a:visited,#includeGeneral .rich-calendar-toolfooter a:hover{
+color:#FFFFFF;
+font-weight:bold;
+text-decoration:none;
+}
+
+#includeGeneral .rich-calendar-time-layout, #includeGeneral .rich-calendar-date-layout, #includeGeneral .rich-calendar-time-layout input {
+}
+#includeGeneral .rich-calendar-time-layout, #includeGeneral .rich-calendar-date-layout, #includeGeneral .rich-calendar-time-layout-ok, #includeGeneral .rich-calendar-date-layout-ok, #includeGeneral .rich-calendar-time-layout-cancel, #includeGeneral .rich-calendar-date-layout-cancel {
+background-color:#731B17;
+color:#FFFFFF;
+}
+#includeGeneral .rich-calendar-editor-btn-over, #includeGeneral .rich-calendar-time-btn {
+background-color:#FF7800;
+}
+
+#includeGeneral .rich-calendar-editor-tool-over, #includeGeneral .rich-calendar-tool-btn-hover {
+background-color:transparent;
+color:#FFF;
+}
+#includeGeneral .rich-calendar-editor-tool-press, #includeGeneral .rich-calendar-btn-press, #includeGeneral .rich-calendar-tool-btn-press {
+background-color:transparent;
+}
+
+#includeGeneral span[id$=Popup]{
+display:block;
+margin: 0 20px 0 0;
+padding: 0px;
+}
+
+#includeGeneral span[id$=Popup]>.rich-calendar-input{
+width:100%;
+}
+
+#includeGeneral span[id$=Popup]>.rich-calendar-button{
+float: right;
+ma\rgin-top: -24px;
+margin-right: -22px;
+}

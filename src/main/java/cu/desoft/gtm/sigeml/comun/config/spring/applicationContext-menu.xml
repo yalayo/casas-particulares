@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+	<bean id="modulo" class="cu.desoft.gtm.sigeml.comun.domain.Modulo" abstract="true" />
+	<bean id="subModulo" class="cu.desoft.gtm.sigeml.comun.domain.SubModulo" abstract="true" />
+	<bean id="funcionalidad" class="cu.desoft.gtm.sigeml.comun.domain.Funcionalidad" abstract="true" />
+	
+	<bean id="generadorMenu" class="cu.desoft.gtm.sigeml.comun.domain.Menu">
+		<property name="modulos">
+			<list>
+				<bean parent="modulo">
+					<property name="nombre" value="Administracion" />
+					
+					<property name="subModulos">
+						<list>
+							<bean parent="subModulo">
+								<property name="nombre" value="Seguridad" />
+								
+								<property name="funcionalidades">
+									<list>
+										<bean parent="funcionalidad">
+											<property name="nombre" value="Incluir Usuario" />
+											<property name="navegacion" value="usuarioManejado" />
+											<property name="url" value="/web/paginas/administracion/seguridad/adicionarUsuario.jsp" />
+										</bean>
+										
+										<bean parent="funcionalidad">
+											<property name="nombre" value="Listar Usuario" />
+											<property name="navegacion" value="listarUsuarioManejado" />
+											<property name="url" value="/web/paginas/administracion/seguridad/listarUsuario.jsp" />
+										</bean>
+										
+										<bean parent="funcionalidad">
+											<property name="nombre" value="Incluir Perfil" />
+											<property name="navegacion" value="perfilManejado" />
+											<property name="url" value="/web/paginas/administracion/seguridad/adicionarPerfil.jsp" />
+										</bean>
+										
+										<bean parent="funcionalidad">
+											<property name="nombre" value="Listar Perfil" />
+											<property name="navegacion" value="listarPerfilManejado" />
+											<property name="url" value="/web/paginas/administracion/seguridad/listarPerfil.jsp" />
+										</bean>
+										
+										<bean parent="funcionalidad">
+											<property name="nombre" value="Incluir Permiso" />
+											<property name="navegacion" value="permisoManejado" />
+											<property name="url" value="/web/paginas/administracion/seguridad/adicionarPermiso.jsp" />
+										</bean>
+										
+										<bean parent="funcionalidad">
+											<property name="nombre" value="Listar Permiso" />
+											<property name="navegacion" value="listarPermisoManejado" />
+											<property name="url" value="/web/paginas/administracion/seguridad/listarPermiso.jsp" />
+										</bean>
+									</list>
+								</property>
+							</bean>
+							
+							<bean parent="subModulo">
+								<property name="nombre" value="Trabajadores" />
+								
+								<property name="funcionalidades">
+									<list>
+										<bean parent="funcionalidad">
+											<property name="nombre" value="Incuir Trabajador" />
+											<property name="navegacion" value="trabajadorManejado" />
+											<property name="url" value="/web/paginas/trabajadores/adicionarTrabajador.jsp" />
+										</bean>
+										
+										<bean parent="funcionalidad">
+											<property name="nombre" value="Listar Trabajadores" />
+											<property name="navegacion" value="listarTrabajadoresManejado" />
+											<property name="url" value="/web/paginas/trabajadores/listarTrabajadores.jsp" />
+										</bean>
+									</list>
+								</property>
+							</bean>
+							
+							<!-- 
+							<bean parent="subModulo">
+								<property name="nombre" value="Nomenclador" />
+								
+								<property name="funcionalidades">
+									<list>
+										<bean parent="funcionalidad">
+											<property name="nombre" value="Incuir Nomenclador" />
+											<property name="navegacion" value="nomencladorManejado" />
+											<property name="url" value="/web/paginas/administracion/nomenclador/adicionarNomenclador.jsp" />
+										</bean>
+										
+										<bean parent="funcionalidad">
+											<property name="nombre" value="Listar Nomenclador" />
+											<property name="navegacion" value="listarNomencladorManejado" />
+											<property name="url" value="/web/paginas/administracion/nomenclador/listarNomenclador.jsp" />
+										</bean>
+									</list>
+								</property>
+							</bean>
+							-->
+						</list>
+					</property>
+				</bean>
+				
+				<!-- -->
+				<bean parent="modulo">
+					<property name="nombre" value="Gestion" />
+					
+					<property name="subModulos">
+						<list>
+							<bean parent="subModulo">
+								<property name="nombre" value="Elementos" />
+								
+								<property name="funcionalidades">
+									<list>
+										<bean parent="funcionalidad">
+											<property name="nombre" value="Subir Documento" />
+											<property name="navegacion" value="documentoManejado" />
+											<property name="url" value="/web/paginas/documentos/adicionarDocumento.jsp" />
+										</bean>
+										
+										<bean parent="funcionalidad">
+											<property name="nombre" value="Listar Documentos" />
+											<property name="navegacion" value="listarDocumentosManejado" />
+											<property name="url" value="/web/paginas/documentos/listarDocumentos.jsp" />
+										</bean>
+										
+										<bean parent="funcionalidad">
+											<property name="nombre" value="Subir Imagen" />
+											<property name="navegacion" value="uploadManejado" />
+											<property name="url" value="/web/paginas/img/imagenSubfuncion.jsp" />
+										</bean>
+										
+										<bean parent="funcionalidad">
+											<property name="nombre" value="Listar Imagen" />
+											<property name="navegacion" value="listarImagenesManejado" />
+											<property name="url" value="/web/paginas/imagenes/listarImagenes.jsp" />
+										</bean>
+										
+										<bean parent="funcionalidad">
+											<property name="nombre" value="Subir Video" />
+											<property name="navegacion" value="documentoManejado" />
+											<property name="url" value="/web/paginas/documentos/adicionarDocumento.jsp" />
+										</bean>
+										
+										<bean parent="funcionalidad">
+											<property name="nombre" value="Listar Videos" />
+											<property name="navegacion" value="listarVdeosManejado" />
+											<property name="url" value="/web/paginas/videos/listarVideos.jsp" />
+										</bean>
+									</list>
+								</property>
+							</bean>
+							
+							<bean parent="subModulo">
+								<property name="nombre" value="Noticias" />
+								
+								<property name="funcionalidades">
+									<list>
+										<bean parent="funcionalidad">
+											<property name="nombre" value="Adicionar Noticia" />
+											<property name="navegacion" value="noticiaManejado" />
+											<property name="url" value="/web/paginas/noticias/adicionarNoticia.jsp" />
+										</bean>
+										
+										<bean parent="funcionalidad">
+											<property name="nombre" value="Listar Noticias" />
+											<property name="navegacion" value="listarNoticiasManejado" />
+											<property name="url" value="/web/paginas/noticias/listarNoticias.jsp" />
+										</bean>
+									</list>
+								</property>
+							</bean>
+						</list>
+					</property>
+				</bean>
+				
+				<!-- 
+				<bean parent="modulo">
+					<property name="nombre" value="Gestion" />
+					
+					<property name="subModulos">
+						<list>
+							<bean parent="subModulo">
+								<property name="nombre" value="Proyecto" />
+								
+								<property name="funcionalidades">
+									<list>
+										<bean parent="funcionalidad">
+											<property name="nombre" value="Incluir Proyecto" />
+											<property name="navegacion" value="proyectoManejado" />
+											<property name="url" value="/web/paginas/proyecto/adicionarProyecto.jsp" />
+										</bean>
+										
+										<bean parent="funcionalidad">
+											<property name="nombre" value="Listar Proyectos" />
+											<property name="navegacion" value="listarProyectosManejado" />
+											<property name="url" value="/web/paginas/proyecto/listarProyectos.jsp" />
+										</bean>
+									</list>
+								</property>
+							</bean>
+							
+							<bean parent="subModulo">
+								<property name="nombre" value="Involucrado" />
+								
+								<property name="funcionalidades">
+									<list>
+										<bean parent="funcionalidad">
+											<property name="nombre" value="Incluir Involucrado" />
+											<property name="navegacion" value="involucradoManejado" />
+											<property name="url" value="/web/paginas/involucrados/adicionarInvolucrado.jsp" />
+										</bean>
+										
+										<bean parent="funcionalidad">
+											<property name="nombre" value="Listar Involucrados" />
+											<property name="navegacion" value="listarInvolucradosManejado" />
+											<property name="url" value="/web/paginas/involucrados/listarInvolucrados.jsp" />
+										</bean>
+									</list>
+								</property>
+							</bean>
+							
+							<bean parent="subModulo">
+								<property name="nombre" value="Fin" />
+								
+								<property name="funcionalidades">
+									<list>
+										<bean parent="funcionalidad">
+											<property name="nombre" value="Incluir Fin" />
+											<property name="navegacion" value="finManejado" />
+											<property name="url" value="/web/paginas/fines/adicionarFin.jsp" />
+										</bean>
+										
+										<bean parent="funcionalidad">
+											<property name="nombre" value="Listar Fines" />
+											<property name="navegacion" value="listarFinesManejado" />
+											<property name="url" value="/web/paginas/fines/listarFines.jsp" />
+										</bean>
+									</list>
+								</property>
+							</bean>
+							
+							<bean parent="subModulo">
+								<property name="nombre" value="Indicadores" />
+								
+								<property name="funcionalidades">
+									<list>
+										<bean parent="funcionalidad">
+											<property name="nombre" value="Incuir Indicador" />
+											<property name="navegacion" value="indicadorManejado" />
+											<property name="url" value="/web/paginas/indicador/adicionarIndicador.jsp" />
+										</bean>
+										
+										<bean parent="funcionalidad">
+											<property name="nombre" value="Listar Indicadores" />
+											<property name="navegacion" value="listarIndicadoresManejado" />
+											<property name="url" value="/web/paginas/indicador/listarIndicadores.jsp" />
+										</bean>
+									</list>
+								</property>
+							</bean>
+							
+							<bean parent="subModulo">
+								<property name="nombre" value="Actividades" />
+								
+								<property name="funcionalidades">
+									<list>
+										<bean parent="funcionalidad">
+											<property name="nombre" value="Incuir Actividad" />
+											<property name="navegacion" value="actividadManejado" />
+											<property name="url" value="/web/paginas/actividad/adicionarActividad.jsp" />
+										</bean>
+										
+										<bean parent="funcionalidad">
+											<property name="nombre" value="Listar Actividades" />
+											<property name="navegacion" value="listarActividadesManejado" />
+											<property name="url" value="/web/paginas/actividad/listarActividades.jsp" />
+										</bean>
+									</list>
+								</property>
+							</bean>
+							
+							<bean parent="subModulo">
+								<property name="nombre" value="Componentes" />
+								
+								<property name="funcionalidades">
+									<list>
+										<bean parent="funcionalidad">
+											<property name="nombre" value="Incuir Componente" />
+											<property name="navegacion" value="componenteManejado" />
+											<property name="url" value="/web/paginas/componente/adicionarComponente.jsp" />
+										</bean>
+										
+										<bean parent="funcionalidad">
+											<property name="nombre" value="Listar Componentes" />
+											<property name="navegacion" value="listarComponentesManejado" />
+											<property name="url" value="/web/paginas/componente/listarComponentes.jsp" />
+										</bean>
+									</list>
+								</property>
+							</bean>
+							
+							<bean parent="subModulo">
+								<property name="nombre" value="Propositos" />
+								
+								<property name="funcionalidades">
+									<list>
+										<bean parent="funcionalidad">
+											<property name="nombre" value="Incluir Proposito" />
+											<property name="navegacion" value="propositoManejado" />
+											<property name="url" value="/web/paginas/propositos/adicionarProposito.jsp" />
+										</bean>
+										
+										<bean parent="funcionalidad">
+											<property name="nombre" value="Listar Propositos" />
+											<property name="navegacion" value="listarPropositoManejado" />
+											<property name="url" value="/web/paginas/propositos/listarPropositos.jsp" />
+										</bean>
+									</list>
+								</property>
+							</bean>                   
+						</list>
+					</property>					 
+				</bean>
+				-->
+			</list>
+		</property>
+	</bean>		
+</beans>

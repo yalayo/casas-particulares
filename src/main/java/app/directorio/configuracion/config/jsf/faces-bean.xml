@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE faces-config PUBLIC "-//Sun Microsystems, Inc.//DTD JavaServer Faces Config 1.1//EN"
+                              "http://java.sun.com/dtd/web-facesconfig_1_1.dtd">
+<faces-config>
+ <managed-bean>
+  <managed-bean-name>preguntaManejado</managed-bean-name>
+  <managed-bean-class>app.directorio.configuracion.web.bean.PreguntaManejado</managed-bean-class>
+  <managed-bean-scope>session</managed-bean-scope>
+ </managed-bean>
+ <managed-bean>
+  <managed-bean-name>listarPreguntasManejado</managed-bean-name>
+  <managed-bean-class>app.directorio.configuracion.web.bean.ListarPreguntasManejado</managed-bean-class>
+  <managed-bean-scope>session</managed-bean-scope>
+ </managed-bean>
+ <managed-bean>
+  <managed-bean-name>seleccionarPreguntasManejado</managed-bean-name>
+  <managed-bean-class>app.directorio.configuracion.web.bean.SeleccionarPreguntasManejado</managed-bean-class>
+  <managed-bean-scope>session</managed-bean-scope>
+ </managed-bean>
+ <managed-bean>
+  <managed-bean-name>criterioManejado</managed-bean-name>
+  <managed-bean-class>app.directorio.configuracion.web.bean.CriterioManejado</managed-bean-class>
+  <managed-bean-scope>session</managed-bean-scope>
+ </managed-bean>
+</faces-config>

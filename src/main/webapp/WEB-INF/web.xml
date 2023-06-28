@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+	 <display-name>Portal</display-name>
+	 
+	<welcome-file-list>
+ 		<welcome-file>index.html</welcome-file>
+ 		<welcome-file>index.htm</welcome-file>
+ 		<welcome-file>index.jsf</welcome-file>
+ 		<welcome-file>index.jsp</welcome-file>
+ 		<welcome-file>default.html</welcome-file>
+ 		<welcome-file>default.htm</welcome-file>
+ 		<welcome-file>default.jsp</welcome-file>
+	</welcome-file-list>
+	 
+	<context-param>
+		<param-name>log4jConfigLocation</param-name>
+  		<param-value>classpath:app/directorio/comun/config/log/log4j.properties</param-value>
+ 	 </context-param>
+ 	 
+ 	 <context-param>
+		<param-name>org.richfaces.LoadScriptStrategy</param-name>
+		<param-value>ALL</param-value>
+	 </context-param>
+	 
+	 <context-param>
+  		<param-name>org.richfaces.LoadStyleStrategy</param-name>
+  		<param-value>ALL</param-value>
+ 	 </context-param>
+ 	 
+ 	 <context-param>
+  	 	<param-name>contextConfigLocation</param-name>  		
+  		<param-value>
+  			
+  			<!-- Comun -->
+  			classpath:app/directorio/comun/config/spring/applicationContext.xml,
+  			classpath:app/directorio/comun/config/spring/applicationContext-jsf.xml,
+  			classpath:app/directorio/comun/config/spring/applicationContext-hibernate.xml,  
+  			classpath:app/directorio/comun/config/spring/applicationContext-acegi.xml,
+  			
+  			<!-- Administracion -->
+  			classpath:cu/desoft/gtm/sigeml/administracion/seguridad/config/spring/applicationContext.xml,
+  			
+  			<!-- Nomencladores -->
+  			classpath:cu/desoft/gtm/sigeml/comun/config/spring/applicationContext.xml,
+  			  			
+  			<!-- Casas -->
+  			classpath:app/directorio/casas/config/spring/applicationContext.xml  
+  			
+  			<!-- Datos -->
+  			classpath:app/directorio/datos/config/spring/applicationContext.xml,  	
+  			
+  			<!-- Preguntas -->
+  			classpath:app/directorio/configuracion/config/spring/applicationContext.xml,  
+  			
+  			<!-- Reservaciones -->
+  			classpath:app/registro/reservaciones/config/spring/applicationContext.xml,
+  			
+  			<!-- Productos -->
+  			classpath:app/registro/productos/config/spring/applicationContext.xml  		
+  		</param-value>
+	</context-param>
+	
+	<context-param>
+ 		<param-name>javax.faces.CONFIG_FILES</param-name>
+ 		<param-value> 			
+ 			<!-- Comun --> 	
+ 			/WEB-INF/classes/app/directorio/comun/config/jsf/faces-bean.xml,
+ 			
+ 			<!-- Administracion/Seguridad -->
+ 			/WEB-INF/classes/cu/desoft/gtm/sigeml/administracion/seguridad/config/jsf/faces-bean.xml,
+ 			
+ 			<!-- Configuracion -->
+ 			/WEB-INF/classes/app/directorio/configuracion/config/jsf/faces-bean.xml,
+ 			
+ 			<!-- Nomencladores-->
+ 			/WEB-INF/classes/cu/desoft/gtm/sigeml/comun/config/jsf/faces-bean.xml,
+ 			
+ 			<!-- Casas -->
+ 			/WEB-INF/classes/app/directorio/casas/config/jsf/faces-bean.xml,
+ 			
+ 			<!-- Datos -->
+ 			/WEB-INF/classes/app/directorio/datos/config/jsf/faces-bean.xml,
+ 			
+ 			<!-- Reservaciones -->
+ 			/WEB-INF/classes/app/registro/reservaciones/config/jsf/faces-bean.xml,
+ 			
+ 			<!-- Productos -->
+ 			/WEB-INF/classes/app/registro/productos/config/jsf/faces-bean.xml,
+ 			
+ 		</param-value>
+ 	</context-param>
+ 	
+ 	<context-param>
+ 		<param-name>app.validators.MANAGER_IMPL_CLASS</param-name>
+ 		<param-value>
+ 			cu.desoft.gtm.sigeml.core.jsf.validador.manager.impl.ValidatorsManagerResolverImpl
+ 		</param-value>
+ 	</context-param>
+
+ 	<!-- Configuracion del Filtro de Richfaces -->
+ 	<filter>
+ 		<display-name>RichFaces Filter</display-name>
+ 		<filter-name>richfaces</filter-name>
+ 		<filter-class>org.ajax4jsf.Filter</filter-class>
+ 	</filter>
+ 	
+ 	<filter-mapping>
+ 		<filter-name>richfaces</filter-name>
+ 		<servlet-name>Faces Servlet</servlet-name>
+ 		<dispatcher>REQUEST</dispatcher>
+ 		<dispatcher>FORWARD</dispatcher>
+ 		<dispatcher>INCLUDE</dispatcher>
+ 	</filter-mapping>
+ 	
+ 	
+	<!-- Poner luego --> 
+ 	<filter>
+ 		<filter-name>Acegi Filter Chain Proxy</filter-name>
+ 		<filter-class>
+ 			org.acegisecurity.util.FilterToBeanProxy
+ 		</filter-class>
+ 		<init-param>
+ 			<param-name>targetClass</param-name>
+ 			<param-value>
+ 				org.acegisecurity.util.FilterChainProxy
+ 			</param-value>
+ 		</init-param>
+ 	</filter>
+ 	
+ 	<filter-mapping>
+ 		<filter-name>Acegi Filter Chain Proxy</filter-name>
+ 		<url-pattern>/*</url-pattern>
+ 		<dispatcher>REQUEST</dispatcher>
+ 	</filter-mapping>
+	
+
+ 	<listener>
+  		<listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
+ 	</listener>
+	
+	<!--  
+	<listener>
+  		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+ 	</listener>
+ 	 -->
+ 	 
+ 	<listener>
+  		<listener-class>app.directorio.comun.listeners.MyContextLoaderListener</listener-class>
+ 	</listener>
+
+	
+	<listener>
+		<listener-class>org.apache.myfaces.webapp.StartupServletContextListener</listener-class>
+	</listener>
+	
+	<!-- Faces Servlet. Servlet de JSF -->
+	<servlet>
+		<servlet-name>Faces Servlet</servlet-name>
+		<!-- Se usa este para la excepciones(Analizar): vnz.cicpc.core.excepciones.servlet.ExceptionHandlingFacesServlet -->
+		<servlet-class>
+			 javax.faces.webapp.FacesServlet
+		</servlet-class>
+		<init-param>
+			<param-name>debug</param-name>
+			<param-value>true</param-value>
+		</init-param>
+		<init-param>
+			<param-name>errorPage</param-name>
+			<param-value>/errorPage.jsp</param-value>
+		</init-param>
+		<init-param>
+			<param-name>showErrorMessage</param-name>
+			<param-value>true</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>Faces Servlet</servlet-name>
+		<url-pattern>*.jsf</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Faces Servlet</servlet-name>
+		<url-pattern>/faces/*</url-pattern>
+	</servlet-mapping>
+	
+	
+	<!-- DWR Servlet. 	
+	<servlet>
+		<servlet-name>dwr-invoker</servlet-name>
+		<servlet-class>app.core.dwr.servlet.MyDWRServlet</servlet-class>
+		<init-param>
+			<param-name>debug</param-name>
+			<param-value>true</param-value>
+		</init-param>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>dwr-invoker</servlet-name>
+		<url-pattern>/dwr/*</url-pattern>
+	</servlet-mapping>-->
+</web-app>

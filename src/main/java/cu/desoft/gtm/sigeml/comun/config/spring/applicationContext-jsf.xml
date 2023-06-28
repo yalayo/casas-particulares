@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+	<!-- == Validador de Secuencias de dígitos ============================================================== -->
+	<bean id="digitsValidator" parent="baseValidator">
+		<property name="className" value="validate-digits" />
+		<property name="regExp" value="^[\d]+$" />
+	</bean>
+	
+	<!-- == Validador de Números reales ===================================================================== -->
+	<bean id="numberValidator" parent="baseValidator">
+		<property name="className" value="validate-number" />
+		<property name="regExp" value="^[\d]*(\.|)[\d]*$" />
+	</bean>
+	
+	<!-- == Validador de Caracteres alfabéticos sin espacio ================================================= -->
+	<bean id="alphaValidator" parent="baseValidator">
+		<property name="className" value="validate-alpha" />
+		<property name="regExp" value="^[a-zA-Z\xE1\xE9\xED\xF3\xFA\xF1\xD1]+$" />
+	</bean>
+	
+	<!-- == Validador de Caracteres alfabéticos con espacio ================================================= -->
+	<bean id="alphaSpcValidator" parent="baseValidator">
+		<property name="className" value="validate-alphaspc" />
+		<property name="regExp" value="^[a-zA-Z\xE1\xE9\xED\xF3\xFA\xF1\xD1\x20]+$" />
+	</bean>
+	
+	<!-- == Validador de Caracteres alfanuméricos sin espacio =============================================== -->
+	<bean id="alphaNumValidator" parent="baseValidator">
+		<property name="className" value="validate-alphanum" />
+		<property name="regExp" value="^[a-zA-Z0-9\xE1\xE9\xED\xF3\xFA\xF1\xD1]+$" />
+	</bean>
+	
+	<!-- == Validador de Caracteres alfanuméricos con espacio =============================================== -->
+	<bean id="alphaNumSpcValidator" parent="baseValidator">
+		<property name="className" value="validate-alphanumspc" />
+		<property name="regExp" value="^[a-zA-Z0-9\xE1\xE9\xED\xF3\xFA\xF1\xD1\x20]+$" />
+	</bean>
+	
+	<!-- == Validador de Correos =============================================== -->
+	<bean id="emailValidator" parent="baseValidator">
+		<property name="className" value="validate-email" />
+		<property name="regExp" value="\w{1,}[@][\w\-]{1,}([.]([\w\-]{1,})){1,3}$" />
+		<property name="errorMsg" value="Debe poner una direccion de correo valida." />
+	</bean>
+	
+	<!-- == Validador de URLs =============================================== -->
+	<bean id="urlValidator" parent="baseValidator">
+		<property name="className" value="validate-url" />
+		<property name="regExp" value="^(http|https|ftp):\/\/(([a-zA-Z0-9][a-zA-Z0-9_-]*)(\.[a-zA-Z0-9][a-zA-Z0-9_-]*)+)(:(\d+))?\/?" />
+	</bean>
+	
+	<!-- == Validador Para los campos que tengan nombres ==================================================== -->
+	<bean id="nombreValidator" parent="baseValidator">
+		<property name="className" value="val-nombre" />
+		<property name="regExp" value="^[a-zA-Z\xE1\xE9\xED\xF3\xFA\xF1\xD1\x20\x2D\x27]+$" />
+		<property name="errorMsg" value="El nombre no debe contener numeros." />
+	</bean>
+	
+	<!-- == Validador Para los campos que tengan letras numeros y Guiones como los Numeros de Expedientes ==================================================== -->
+	<bean id="NumeroLetraGuionValidator" parent="baseValidator">
+		<property name="className" value="val-NLG" />
+		<property name="regExp" value="^[a-zA-Z0-9\xE1\xE9\xED\xF3\xFA\xF1\xD1\x20\x2D\x27]+$" />
+	</bean>	
+</beans>

@@ -1,0 +1,146 @@
+<?xml version="1.0"?>
+<!DOCTYPE faces-config PUBLIC "-//Sun Microsystems, Inc.//DTD JavaServer Faces Config 1.1//EN"
+                              "http://java.sun.com/dtd/web-facesconfig_1_1.dtd">
+<faces-config>
+ <converter>
+  <description>Convertidor generico para una lista de SelectItem de Objetos</description>
+  <converter-id>selectItemsListConvertidor</converter-id>
+  <converter-class>cu.desoft.gtm.sigeml.comun.web.convertidor.SelectItemsListConvertidor</converter-class>
+ </converter>
+ <converter>
+  <description>Convertidor para una lista de SelectItem de Clases que usa el nombre simple de la clase como value</description>
+  <converter-id>selectItemsClassListConvertidor</converter-id>
+  <converter-class>cu.desoft.gtm.sigeml.comun.web.convertidor.SelectItemsClassListConvertidor</converter-class>
+ </converter>
+ <converter>
+  <description>Convertidor para string que devuelve null en caso de estar en blanco</description>
+  <converter-id>stringBlankANullConvertidor</converter-id>
+  <converter-class>cu.desoft.gtm.sigeml.comun.web.convertidor.StringBlankANullConvertidor</converter-class>
+ </converter>
+ <converter>
+  <description>Convertidor para Integer que devuelve null en caso de estar en blanco</description>
+  <converter-id>integerBlankANullConvertidor</converter-id>
+  <converter-class>cu.desoft.gtm.sigeml.comun.web.convertidor.IntegerBlankANullConvertidor</converter-class>
+ </converter>
+ <converter>
+  <description>Convertidor para Float que devuelve null en caso de estar en blanco</description>
+  <converter-id>floatBlankANullConvertidor</converter-id>
+  <converter-class>cu.desoft.gtm.sigeml.comun.web.convertidor.FloatBlankANullConvertidor</converter-class>
+ </converter>
+ <converter>
+  <description>Convertidor para mostrar objetos List que elimina los '[' ']' y los separa con una linea nueva</description>
+  <converter-id>listToStringConvertidor</converter-id>
+  <converter-class>cu.desoft.gtm.sigeml.comun.web.convertidor.ListToStringConvertidor</converter-class>
+ </converter>
+ <converter>
+  <description>Convertidor para mostrar Boolean como String</description>
+  <converter-id>booleanConvertidor</converter-id>
+  <converter-class>cu.desoft.gtm.sigeml.comun.web.convertidor.BooleanConvertidor</converter-class>
+ </converter>
+ <converter>
+  <description>Convertidor para convertir un Boolean false a null</description>
+  <converter-id>boolFalseANullConvertidor</converter-id>
+  <converter-class>cu.desoft.gtm.sigeml.comun.web.convertidor.BoolFalseANullConvertidor</converter-class>
+ </converter>
+ <converter>
+  <description>Convertidor para eliminar las ',' repetidas en un String</description>
+  <converter-id>stringRemoveCommasConvertidor</converter-id>
+  <converter-class>cu.desoft.gtm.sigeml.comun.web.convertidor.StringRemoveCommasConvertidor</converter-class>
+ </converter>
+ <converter>
+  <description>Convertidor que convierte un String a html</description>
+  <converter-id>stringToHtmlConvertidor</converter-id>
+  <converter-class>cu.desoft.gtm.sigeml.comun.web.convertidor.StringToHtmlConvertidor</converter-class>
+ </converter>
+ <converter>
+  <description>Convertidor usado para especificarle al componente JSON el valor que usara como llave</description>
+  <converter-id>selectOneMenuJSONConvertidor</converter-id>
+  <converter-class>cu.desoft.gtm.sigeml.comun.web.convertidor.SelectOneMenuJSONConvertidor</converter-class>
+ </converter>
+ <converter>
+  <description>Convertidor usado para convertir un String a Boolean</description>
+  <converter-id>stringBooleanConvertidor</converter-id>
+  <converter-class>cu.desoft.gtm.sigeml.comun.web.convertidor.StringToBooleanConvertidor</converter-class>
+ </converter>
+ <converter>
+  <description>Convertidor para mostrar la edad a partir de un objeto Date</description>
+  <converter-id>fechaEdadConvertidor</converter-id>
+  <converter-class>cu.desoft.gtm.sigeml.comun.web.convertidor.FechaEdadConvertidor</converter-class>
+ </converter>
+ <converter>
+  <description>Muestra un número en formato de tiempo (00:00:00)</description>
+  <converter-id>numberToTimeConvertidor</converter-id>
+  <converter-class>cu.desoft.gtm.sigeml.comun.web.convertidor.NumberToTimeConvertidor</converter-class>
+ </converter>
+ <converter>
+  <converter-id>booleanSelectItemsConvertidor</converter-id>
+  <converter-class>cu.desoft.gtm.sigeml.comun.web.convertidor.BooleanSelectItemsConvertidor</converter-class>
+ </converter>
+ <converter>
+  <converter-id>classConvertidor</converter-id>
+  <converter-class>cu.desoft.gtm.sigeml.comun.web.convertidor.ClassConvertidor</converter-class>
+ </converter>
+ <converter>
+  <converter-id>JSONConvertidor</converter-id>
+  <converter-class>cu.desoft.gtm.sigeml.comun.web.convertidor.JSONConvertidor</converter-class>
+ </converter>
+ <converter>
+  <description>Convertidor usado para mostrar los valores de los atributos de las entidades</description>
+  <converter-id>entityAttributeConvertidor</converter-id>
+  <converter-class>cu.desoft.gtm.sigeml.comun.web.convertidor.EntityAttributeConvertidor</converter-class>
+ </converter>
+ <converter>
+  <description>Convertidor usado listas de seleccion de valores booleanos</description>
+  <converter-id>booleanBlankANullConvertidor</converter-id>
+  <converter-class>cu.desoft.gtm.sigeml.comun.web.convertidor.BooleanBlankANullConvertidor</converter-class>
+ </converter>
+ <managed-bean>
+  <managed-bean-name>listarNomencladorManejado</managed-bean-name>
+  <managed-bean-class>cu.desoft.gtm.sigeml.comun.web.bean.ListarNomencladorManejado</managed-bean-class>
+  <managed-bean-scope>session</managed-bean-scope>
+ </managed-bean>
+ <managed-bean>
+  <managed-bean-name>modificarNomencladorManejado</managed-bean-name>
+  <managed-bean-class>cu.desoft.gtm.sigeml.comun.web.bean.ModificarNomencladorManejado</managed-bean-class>
+  <managed-bean-scope>session</managed-bean-scope>
+ </managed-bean>
+ <managed-bean>
+  <managed-bean-name>nomencladorManejado</managed-bean-name>
+  <managed-bean-class>cu.desoft.gtm.sigeml.comun.web.bean.NomencladorManejado</managed-bean-class>
+  <managed-bean-scope>session</managed-bean-scope>
+ </managed-bean>
+ <managed-bean>
+  <managed-bean-name>mostrarNomencladorManejado</managed-bean-name>
+  <managed-bean-class>cu.desoft.gtm.sigeml.comun.web.bean.MostrarNomencladorManejado</managed-bean-class>
+  <managed-bean-scope>session</managed-bean-scope>
+ </managed-bean>
+ <!-- 
+    <managed-bean>
+		<managed-bean-name>dynamicImageRenderer</managed-bean-name>
+		<managed-bean-class>vnz.cicpc.comun.web.util.DynamicImageRenderer</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	
+	</managed-bean>
+	
+	<managed-bean>
+		<managed-bean-name>archivoManejado</managed-bean-name>
+		<managed-bean-class>vnz.cicpc.comun.web.util.ArchivoManejado</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	
+	</managed-bean>
+	
+	<managed-bean>
+		<managed-bean-name>genericListSorter</managed-bean-name>
+		<managed-bean-class>cicpc.custom.utils.DataTableSorter</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	
+	</managed-bean>
+	
+	<managed-bean>
+		<managed-bean-name>dataTableSorter</managed-bean-name>
+		<managed-bean-class>cicpc.custom.utils.DataTableSorter</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	
+	</managed-bean>
+	 -->
+</faces-config>

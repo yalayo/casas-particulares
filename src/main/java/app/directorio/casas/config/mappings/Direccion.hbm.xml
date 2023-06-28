@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="app.directorio.casas.domain">
+	<class name="Direccion" table="Direccion">
+  		<id name="id" column="id">
+			<generator class="increment" />
+		</id>
+      	
+      	<property name="calle" column="Calle" />
+      	<property name="edificio" column="Edificio" /> 
+      	<property name="apartamento" column="Apartamento" /> 
+      	<property name="entreCalles" column="EntreCalles" /> 
+      	<property name="barrio" column="Barrio" /> 
+      	<property name="reparto" column="Reparto" />
+      	<property name="ciudad" column="Ciudad" />
+      	<property name="municipio" column="Municipio" />
+      	<property name="provincia" column="Provincia" /> 	
+	</class>
+</hibernate-mapping>

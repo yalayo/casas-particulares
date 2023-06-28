@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+	<!-- =========== Administrador para los validadores de JSF ========== -->
+	<bean id="validatorsManager" class="cu.desoft.gtm.sigeml.core.jsf.validador.manager.impl.ValidatorsManagerImpl">
+		<property name="validators">
+			<map>
+				<entry key="validate-email" value-ref="emailValidator" />
+				<entry key="val-nombre" value-ref="nombreValidator" />
+				<entry key="validate-digits" value-ref="digitsValidator" />
+				<entry key="validate-number" value-ref="numberValidator" />
+				<entry key="validate-alpha" value-ref="alphaValidator" />
+				<entry key="val-numTO" value-ref="numeroTurOperadorValidator" />
+				<entry key="val-numReserva" value-ref="numeroReserva" />
+			</map>
+		</property>
+	</bean>
+
+	<!-- Validador base -->
+	<bean id="baseValidator" class="app.validator.BasicValidator" abstract="true">
+		<property name="errorMsg" value="Mi mensaje de prueba" />
+	</bean>
+	
+	<bean id="entitySupporter" class="cu.desoft.gtm.sigeml.core.util.entitysupport.impl.EntitySupporterImpl" />
+	
+	<bean id="jsfBeansRemoverExclussionList" class="java.util.HashSet">
+		<constructor-arg>
+			<set>
+			</set>
+		</constructor-arg>
+	</bean>
+
+	<bean id="jsfBeansRemoverList" class="java.util.HashSet">
+		<constructor-arg>
+			<set>
+				<value>tabPanelSelectedTabReminderBean</value>
+			</set>
+		</constructor-arg>
+	</bean>
+	
+	<!-- == Validador de Secuencias de dígitos ============================================================== -->
+	<bean id="digitsValidator" parent="baseValidator">
+		<property name="className" value="validate-digits" />
+		<property name="regExp" value="^[\d]+$" />
+		<property name="errorMsg" value="Solo puede contener numeros sin espacios." />
+	</bean>
+	
+	<!-- == Validador de Números reales ===================================================================== -->
+	<bean id="numberValidator" parent="baseValidator">
+		<property name="className" value="validate-number" />
+		<property name="regExp" value="^[\d]*(\.|)[\d]*$" />
+		<property name="errorMsg" value="Debe escribir un numero correcto." />
+	</bean>
+	
+	<!-- == Validador de Caracteres alfabéticos sin espacio ================================================= -->
+	<bean id="alphaValidator" parent="baseValidator">
+		<property name="className" value="validate-alpha" />
+		<property name="regExp" value="^[a-zA-Z\xE1\xE9\xED\xF3\xFA\xF1\xD1]+$" />
+		<property name="errorMsg" value="Solo puede contener letras sin espacios." />
+	</bean>
+	
+	<!-- == Validador de Caracteres alfabéticos con espacio ================================================= -->
+	<bean id="alphaSpcValidator" parent="baseValidator">
+		<property name="className" value="validate-alphaspc" />
+		<property name="regExp" value="^[a-zA-Z\xE1\xE9\xED\xF3\xFA\xF1\xD1\x20]+$" />
+	</bean>
+	
+	<!-- == Validador de Caracteres alfanuméricos sin espacio =============================================== -->
+	<bean id="alphaNumValidator" parent="baseValidator">
+		<property name="className" value="validate-alphanum" />
+		<property name="regExp" value="^[a-zA-Z0-9\xE1\xE9\xED\xF3\xFA\xF1\xD1]+$" />
+		<property name="errorMsg" value="Solo puede contener letras y numeros sin espacios." />
+	</bean>
+	
+	<!-- == Validador de Caracteres alfanuméricos con espacio =============================================== -->
+	<bean id="alphaNumSpcValidator" parent="baseValidator">
+		<property name="className" value="validate-alphanumspc" />
+		<property name="regExp" value="^[a-zA-Z0-9\xE1\xE9\xED\xF3\xFA\xF1\xD1\x20]+$" />
+	</bean>
+	
+	<!-- == Validador de Correos =============================================== -->
+	<bean id="emailValidator" parent="baseValidator">
+		<property name="className" value="validate-email" />
+		<property name="regExp" value="\w{1,}[@][\w\-]{1,}([.]([\w\-]{1,})){1,3}$" />
+		<property name="errorMsg" value="Debe poner una direccion de correo valida." />
+	</bean>
+	
+	<!-- == Validador de URLs =============================================== -->
+	<bean id="urlValidator" parent="baseValidator">
+		<property name="className" value="validate-url" />
+		<property name="regExp" value="^(http|https|ftp):\/\/(([a-zA-Z0-9][a-zA-Z0-9_-]*)(\.[a-zA-Z0-9][a-zA-Z0-9_-]*)+)(:(\d+))?\/?" />
+	</bean>
+	
+	<!-- == Validador Para los campos que tengan nombres ==================================================== -->
+	<bean id="nombreValidator" parent="baseValidator">
+		<property name="className" value="val-nombre" />
+		<property name="regExp" value="^[a-zA-Z\xE1\xE9\xED\xF3\xFA\xF1\xD1\x20\x2D\x27]+$" />
+		<property name="errorMsg" value="El nombre o apellidos no debe contener numeros." />
+	</bean>
+	
+	<!-- == Validador Para los campos que tengan letras numeros y Guiones como los Numeros de Expedientes ==================================================== -->
+	<bean id="numeroLetraGuionValidator" parent="baseValidator">
+		<property name="className" value="val-NLG" />
+		<property name="regExp" value="^[a-zA-Z0-9\xE1\xE9\xED\xF3\xFA\xF1\xD1\x20\x2D\x27]+$" />
+	</bean>	
+	
+	
+	<!-- ESPECIFICOS -->
+	<bean id="numeroTurOperadorValidator" parent="baseValidator">
+		<property name="className" value="val-numTO" />
+		<property name="regExp" value="^[a-zA-Z0-9\xE1\xE9\xED\xF3\xFA\xF1\xD1\x2D\x27]+$" />
+		<property name="errorMsg" value="El numero de Tur Operador no puede contener espacios, solo numeros letras y guiones." />
+	</bean>	
+	
+	<bean id="numeroReserva" parent="baseValidator">
+		<property name="className" value="val-numReserva" />
+		<property name="regExp" value="^[a-zA-Z0-9\xE1\xE9\xED\xF3\xFA\xF1\xD1\x2D\x27]+$" />
+		<property name="errorMsg" value="Este campo no puede contener espacios, solo numeros letras y guiones." />
+	</bean>	
+</beans>

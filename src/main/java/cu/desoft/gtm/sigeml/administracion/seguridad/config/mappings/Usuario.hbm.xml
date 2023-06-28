@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="cu.desoft.gtm.sigeml.administracion.seguridad.domain" >
+	<class name="Usuario" table="Usuarios">
+		<id name="id" column="idUsuario">
+			<generator class="increment" />
+		</id>
+		
+		<property name="usuario" column="Usuario"  />		
+		<property name="password" column="Password"/>
+				
+		<set name="perfiles" table="UsuariosPerfil" lazy="false" cascade="save-update">
+			<key column="IdUsuario"></key>
+			<many-to-many class="Perfil" column="IdPerfil"/>	
+		</set>
+	</class>		
+</hibernate-mapping>

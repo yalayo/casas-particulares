@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="app.registro.reservaciones.domain">
+	<class name="Reservacion" table="Reservacion">
+  		<id name="id" column="id">
+			<generator class="increment" />
+		</id>
+      	
+      	<property name="numeroReservacion" column="numeroReservacion" />	
+      	<property name="numeroTurmundo" column="numeroTurmundo" />
+      	<property name="turOperador" column="turOperador" />
+      	<property name="numeroReservaTurOperador" column="numeroReservaTurOperador" />
+      	<property name="numeroReservaCubanacan" column="numeroReservaCubanacan" />
+      	<property name="numeroReservaCubatur" column="numeroReservaCubatur" />
+      	<property name="nombre" column="nombre" />
+      	<property name="primerApellido" column="primerApellido" />
+      	<property name="segundoApellido" column="segundoApellido" />
+      	<property name="cantidadPasajeros" column="cantidadPasajeros" />
+      	<property name="anhoReservacion" column="anhoReservacion" />
+      	<property name="fechaSolicitud" column="fechaSolicitud" />
+      	<property name="fechaLlegada" column="fechaLlegada" />
+      	<property name="fechaPartida" column="fechaPartida" />
+      	<property name="proveedorProducto" column="proveedorProducto" />
+      	<property name="codigoProductoErl" column="codigoProductoErl" />
+      	<property name="codigoProductoTur" column="codigoProductoTur" />
+      	<property name="estadoReservacion" column="estadoReservacion" />
+      	<property name="proveedorServicio" column="proveedorServicio" />
+      	<property name="observaciones" column="observaciones" />
+      	
+      	<many-to-one name="reservante" class="app.directorio.personas.domain.Persona" column="reservante" lazy="false"/>
+      	<many-to-one name="casa" class="app.directorio.casas.domain.Casa" column="casa" lazy="false"/>
+      	<many-to-one name="factura1" class="Factura" column="factura1" lazy="false"/>
+      	<many-to-one name="factura2" class="Factura" column="factura2" lazy="false"/>
+      	<many-to-one name="facturaErl" class="Factura" column="facturaErl" lazy="false"/>
+      	<many-to-one name="facturaCredito" class="Factura" column="facturaCredito" lazy="false"/>
+      		  	
+	  	<bag name="clientes" table="ClienteReservacion" lazy="false" cascade="save-update">
+			<key column="idReservacion"></key>
+			<many-to-many class="app.directorio.personas.domain.Persona" column="idPersona" />	
+	  	</bag>
+	  	
+	  	<bag name="productos" table="ProductoReservacion" lazy="false" cascade="save-update">
+			<key column="idReservacion"></key>
+			<many-to-many class="app.registro.productos.domain.Producto" column="idProducto" />	
+	  	</bag>
+	</class>
+</hibernate-mapping>
