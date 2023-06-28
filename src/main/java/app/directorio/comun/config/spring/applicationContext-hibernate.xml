@@ -22,9 +22,6 @@
 		<property name="url">
 			<value>${hibernate.connection.url}</value>
 		</property>
-		<property name="driverClassName">
-			<value>${hibernate.connection.driver_class}</value>
-		</property>
 		<property name="username">
 			<value>${hibernate.connection.username}</value>
 		</property>
