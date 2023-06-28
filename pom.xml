@@ -74,6 +74,12 @@
     	<artifactId>mysql-connector-java</artifactId>
     	<version>8.0.27</version>
 		</dependency>
+		<!-- Custom libraries dependencies -->
+		<dependency>
+    	<groupId>com.custom</groupId>
+    	<artifactId>core-jsf</artifactId>
+    	<version>1.0</version>
+		</dependency>
   </dependencies>
   <build>
     <plugins>
