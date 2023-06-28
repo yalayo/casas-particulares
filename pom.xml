@@ -137,6 +137,16 @@
 		</dependency>
 		<dependency>
 		  <groupId>com.custom</groupId>
+		  <artifactId>acegi4ajax</artifactId>
+		  <version>1.0</version>
+		</dependency>
+		<dependency>
+		  <groupId>com.custom</groupId>
+		  <artifactId>cicpc-securityframework</artifactId>
+		  <version>1.0</version>
+		</dependency>
+		<dependency>
+		  <groupId>com.custom</groupId>
 		  <artifactId>richfaces-ui</artifactId>
 		  <version>3.1.6.GA</version>
 		</dependency>
